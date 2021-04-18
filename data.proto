@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package dataPackage;
+
+service data {
+    rpc addData(dataUser) returns (idUser);
+    rpc readData(voidNoParam) returns (moreDataUsers);
+    rpc deleteData(idUser) returns (voidNoParam);
+    rpc putData(moreDataUser) returns (moreDataUser);
+}
+
+message voidNoParam {}
+
+message dataUser {
+    string name = 2;
+    string password = 3;
+}
+message idUser {
+    int32 id = 1;
+}
+
+message moreDataUser {
+    int32 id = 1;
+    string name = 2;
+    string password = 3;
+}
+
+
+message moreDataUsers {
+    repeated moreDataUser items = 1;
+}
